@@ -1,17 +1,17 @@
 import ballerina/io;
 
-public function main() {
-    int age = 20;
-
-    if (age < 18) {
-        io:println("Minor");
-    } else {
-        io:println("Adult");
+function divide(int a, int b) returns int|error {
+    if (b == 0) {
+        return error("Division by zero");
     }
+    return a / b;
+}
 
-    // Loop
-    int[] numbers = [1, 2, 3, 4, 5];
-    foreach int number in numbers {
-        io:println(number);
+public function main() {
+    var result = divide(10, 0);
+    if (result is error) {
+        io:println("Error: ", result.message());
+    } else {
+        io:println("Result: ", result);
     }
 }
