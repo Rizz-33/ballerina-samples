@@ -1,10 +1,17 @@
 import ballerina/io;
 
-function greet(string name) returns string {
-    return "Hello, " + name + "!";
-}
-
 public function main() {
-    string message = greet("Alice");
-    io:println(message);
+    int age = 20;
+
+    if (age < 18) {
+        io:println("Minor");
+    } else {
+        io:println("Adult");
+    }
+
+    // Loop
+    int[] numbers = [1, 2, 3, 4, 5];
+    foreach int number in numbers {
+        io:println(number);
+    }
 }
