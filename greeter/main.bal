@@ -1,7 +1,13 @@
 import ballerina/io;
 
 public function main() {
-    io:println("Hello, World!");
-}
+    int age = 30;
+    string name = "Alice";
+    boolean isStudent = true;
+    float height = 5.9;
 
-//bal new greeter (this is how to create a new project)
+    io:println("Name: ", name);
+    io:println("Age: ", age);
+    io:println("Is Student: ", isStudent);
+    io:println("Height: ", height);
+}
