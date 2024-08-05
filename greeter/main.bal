@@ -1,17 +1,18 @@
-import ballerina/io;
+import ballerina/http;
+import ballerina/log;
 
-function divide(int a, int b) returns int|error {
-    if (b == 0) {
-        return error("Division by zero");
+service /hello on new http:Listener(8080) {
+
+    resource function get sayHello(http:Caller caller, http:Request req) {
+        http:Response res = new;
+        res.setTextPayload("Hello, World!");
+        var result = caller->respond(res);
+        if (result is error) {
+            log:printError("Error sending response", result);
+        }
     }
-    return a / b;
 }
 
 public function main() {
-    var result = divide(10, 5);
-    if (result is error) {
-        io:println("Error: ", result.message());
-    } else {
-        io:println("Result: ", result);
-    }
+    log:printInfo("Service is running on http://localhost:8080/hello/sayHello");
 }
