@@ -8,7 +8,7 @@ function divide(int a, int b) returns int|error {
 }
 
 public function main() {
-    var result = divide(10, 0);
+    var result = divide(10, 5);
     if (result is error) {
         io:println("Error: ", result.message());
     } else {
