@@ -4,7 +4,7 @@ function divide(int a, int b) returns int|error {
     if (b == 0) {
         return error("Division by zero");
     }
-    return a / b
+    return a / b;
 }
 
 public function main() {
